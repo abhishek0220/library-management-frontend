@@ -1,5 +1,5 @@
 <div id="wrapper">
-    <app-sidebar></app-sidebar>
+    <app-sidebar [activeComp]="'publisher'"></app-sidebar>
     <div class="d-flex flex-column" id="content-wrapper">
         <div id="content">
             <app-nav></app-nav>
@@ -46,7 +46,11 @@
                                             <td *ngIf="i == editIndex"><input formControlName="editphone" type="text"></td>
                                             <td>
                                                 <button *ngIf="i != editIndex" class="btn btn-danger btn-sm" (click)="editTrigger(i)">Edit</button>
-                                                <button *ngIf="i == editIndex" class="btn btn-success btn-sm" (click)="savePub(item['p_id'])">Save</button>
+                                                <div *ngIf="i == editIndex">
+                                                    <p class="hover-cursor" (click)="savePub(item['p_id'])">Save</p>
+                                                    <p class="hover-cursor" (click)="deletePub(item['p_id'])">Delete</p>
+                                                </div>
+                                                
                                             </td>
                                         </tr>
                                         <tr>
@@ -81,8 +85,8 @@
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Copyright © Brand 2021</span></div>
+                <div class="text-center my-auto copyright"><span>Library Management System</span></div>
             </div>
         </footer>
-    </div><a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+    </div>
 </div>

@@ -6,8 +6,24 @@
         </a>
         <hr class="sidebar-divider my-0">
         <ul class="navbar-nav text-light" id="accordionSidebar">
-            <li class="nav-item"><a class="nav-link active" href="/publisher"><i
-                        class="fas fa-table"></i><span>Publisher</span></a></li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/publisher" [class.active] = "activeComp === 'publisher'">
+                    <i class="fas fa-table"></i>
+                    <span>Publisher</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/rental" [class.active] = "activeComp === 'rental'">
+                    <i class="fas fa-table"></i>
+                    <span>Rental</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/reader" [class.active] = "activeComp === 'reader'">
+                    <i class="fas fa-table"></i>
+                    <span>Reader</span>
+                </a>
+            </li>
         </ul>
         <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0"
                 id="sidebarToggle" type="button"></button></div>

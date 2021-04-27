@@ -86,5 +86,13 @@ export class PublisherComponent implements OnInit {
       console.log(error)
     })
   }
+  deletePub(n:number){
+    this.http.delete(`${this.storeInfo.serverURL}/publisher?id=${n}`).pipe().subscribe((data)=>{
+      this.getPublisher()
+    },error =>{
+      console.log("error occured",'--------------------------------------------')
+      console.log(error)
+    })
+  }
 
 }

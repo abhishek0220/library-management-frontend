@@ -1,1 +1,22 @@
-<p>home works!</p>
+<div class="shopping-grid">
+    <div style="position: absolute; right: 10px;">
+        <h6 class="hover-cursor" routerLink="/login">Login</h6>
+    </div>
+    <div class="container">
+        <h3 align="center">Books Available</h3>
+        <div class="row">
+            <div class="col-md-3 col-sm-6" *ngFor="let item of allBooks" style="margin-bottom: 40px;">
+                <div class="product-grid7">
+                    <div class="product-image7"><img class="pic-1" src="{{item['thumbnail_url']}}" />
+                    </div>
+                    <div class="product-content">
+                        <h3 class="title">{{item['name']}}</h3>
+                        <h6 style="font-size: 15px;">Available: {{item['available_copies']}} Copies</h6>
+                        <h6 style="font-size: 15px;">Publisher: {{item['publisher']}}</h6>
+                        <h6 style="font-size: 15px;"><i>Rent: {{item['price_day']}}/Day, Days_Limit: {{item['limit_day']}}</i></h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

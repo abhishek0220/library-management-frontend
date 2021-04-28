@@ -23,6 +23,9 @@ export class AddBooksComponent implements OnInit {
     private router: Router,
     private activatedroute: ActivatedRoute,
   ) {
+    if(!this.storeInfo.isSignedIn){
+      this.router.navigateByUrl('login');
+    }
     this.mainForm();
     this.getPublisher();
     this.getRental();

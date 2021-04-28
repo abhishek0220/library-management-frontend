@@ -22,6 +22,9 @@ export class LoginComponent implements OnInit {
     private router: Router,
   ) {
     this.mainForm();
+    if(this.storeInfo.isSignedIn){
+      this.router.navigateByUrl('publisher');
+    }
   }
 
   ngOnInit(): void {
@@ -42,14 +45,14 @@ export class LoginComponent implements OnInit {
     else{
       this.invalid = false;
       this.errorOcc = false;
-      this.http.post(`${this.storeInfo.serverURL}/rental`, this.loginForm.value).pipe().subscribe((data)=>{
+      this.http.post(`${this.storeInfo.serverURL}/login`, this.loginForm.value).pipe().subscribe((data)=>{
         if(data['status'] == 'OK'){
           var name = data['name'];
           var uid = data['userid'];
           var token = data['access_token'];
           //var refToken = data['refresh_token']
           this.storeInfo.intializeValue(token, uid, name);
-          this.router.navigateByUrl('reader');
+          this.router.navigateByUrl('publisher');
         }
         else{
           this.invalid = true;

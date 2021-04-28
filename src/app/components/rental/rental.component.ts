@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StoreInfoService }  from '../../services/store-info.service';
 import { HttpClient } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-rental',
@@ -18,8 +19,12 @@ export class RentalComponent implements OnInit {
     private http: HttpClient,
     private storeInfo: StoreInfoService,
     public fb: FormBuilder,
+    private router: Router,
   ) {
     this.mainForm();
+    if(!this.storeInfo.isSignedIn){
+      this.router.navigateByUrl('login');
+    }
   }
 
   ngOnInit(): void {

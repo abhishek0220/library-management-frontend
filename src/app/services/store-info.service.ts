@@ -22,7 +22,7 @@ export class StoreInfoService {
   }
 
   getAccessToken(){
-    return localStorage.getItem('refreshToken');
+    return localStorage.getItem('token');
   }
 
   intializeValue(token, userid, name){
@@ -35,6 +35,9 @@ export class StoreInfoService {
 
   refresh(){
     this.isSignedIn = this.getAccessToken()?true:false;
+    this.accessToken = this.getAccessToken();
+    this.name = localStorage.getItem('name');
+    this.userid = localStorage.getItem('uid');
   }
 
   signOut(){

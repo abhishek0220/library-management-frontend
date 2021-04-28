@@ -14,6 +14,7 @@ import { ReaderComponent } from './components/reader/reader.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookComponent } from './components/book/book.component';
 import { AddBooksComponent } from './components/add-books/add-books.component';
+import { TokenIntercepterService } from './services/token-intercepter.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,13 @@ import { AddBooksComponent } from './components/add-books/add-books.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenIntercepterService,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

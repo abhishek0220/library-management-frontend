@@ -11,6 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RentalComponent } from './components/rental/rental.component';
 import { ReaderComponent } from './components/reader/reader.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReaderComponent } from './components/reader/reader.component';
     NavComponent,
     RentalComponent,
     ReaderComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

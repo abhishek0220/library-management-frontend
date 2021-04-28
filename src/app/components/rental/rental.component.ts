@@ -77,7 +77,6 @@ export class RentalComponent implements OnInit {
       'price' : price,
       'fine' : fine,
       'limit' : limit
-      
     }
     this.http.post(`${this.storeInfo.serverURL}/rental`, tmp).pipe().subscribe((data)=>{
       this.getRental()

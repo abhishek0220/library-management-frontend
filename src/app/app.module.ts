@@ -12,6 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RentalComponent } from './components/rental/rental.component';
 import { ReaderComponent } from './components/reader/reader.component';
 import { LoginComponent } from './components/login/login.component';
+import { BookComponent } from './components/book/book.component';
+import { AddBooksComponent } from './components/add-books/add-books.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,8 @@ import { LoginComponent } from './components/login/login.component';
     RentalComponent,
     ReaderComponent,
     LoginComponent,
+    BookComponent,
+    AddBooksComponent,
   ],
   imports: [
     BrowserModule,

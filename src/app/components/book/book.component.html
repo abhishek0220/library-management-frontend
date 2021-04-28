@@ -1,0 +1,74 @@
+<div id="wrapper">
+    <app-sidebar [activeComp]="'book'"></app-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <app-nav></app-nav>
+            <div class="container-fluid">
+                <h3 class="text-dark mb-4">Books</h3>
+                <div class="card shadow">
+                    <div class="card-header py-3">
+                        <p class="text-primary m-0 font-weight-bold">Book Info</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a class="btn btn-primary btn-sm" (click)="getBooks()">Refresh</a>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-md-right dataTables_filter" id="dataTable_filter">
+                                    <label>
+                                        <input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>ISBN</th>
+                                            <th>Copies Available</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor = "let item of allBooks; let i=index">
+                                            <td>{{item['_id']}}</td>
+                                            <td>{{item['name']}}</td>
+                                            <td>{{item['isbn']}}</td>
+                                            <td>{{item['available_copies']}}</td>
+                                            <td>
+                                                <button class="btn btn-danger btn-sm">Edit</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td><strong>ID</strong></td>
+                                            <td><strong>Name</strong></td>
+                                            <td><strong>ISBN</strong></td>
+                                            <td><strong>Copies Available</strong></td>
+                                            
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        <div class="row">
+                            <div class="col-md-6 align-self-center">
+                                <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">
+                                    Showing 1 to {{allBooks.length}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Library Management System</span></div>
+            </div>
+        </footer>
+    </div>
+</div>

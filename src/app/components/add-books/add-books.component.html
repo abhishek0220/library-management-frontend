@@ -1,0 +1,76 @@
+<div id="wrapper">
+    <app-sidebar [activeComp]="'addBooks'"></app-sidebar>
+    <div class="d-flex flex-column" id="content-wrapper">
+        <div id="content">
+            <app-nav></app-nav>
+            <div class="container-fluid">
+                <h3 class="text-dark mb-4">Add Books</h3>
+                <div class="card shadow">
+                    <div class="card-body">
+                        <section class="contact-clean">
+                            <form [formGroup]="newBookForm" (ngSubmit)="addbook()">
+                                <h2 class="text-center">Enter book details</h2>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input formControlName="name" type="text" class="form-control" name="name" placeholder="Book Name" />
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input formControlName="isbn" type="text" class="form-control" name="isbn" placeholder="ISBN number" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3 edtFormMarg">
+                                        <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Select Publisher</label></div>
+                                        <select formControlName="p_id" class="custom-select" name="p_id">
+                                            <option selected>Select Publisher</option>
+                                            <option value="{{item['p_id']}}" *ngFor="let item of allPublisher">{{item['p_id']}}: {{item['p_name']}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group mb-3 edtFormMarg">
+                                        <div class="input-group-prepend"><label class="input-group-text" for="inputGroupSelect01">Select Rental</label></div>
+                                        <select formControlName="rental_id" class="custom-select" name="rental_id">
+                                            <option selected>Select Rental</option>
+                                            <option value="{{item['rental_id']}}" *ngFor="let item of allRental">Price: {{item['price_day']}}/Day, Limit: {{item['limit_day']}}Days</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 form-group">
+                                        <input formControlName="total_copies" type="text" class="form-control" name="total_copies" placeholder="Total Copies" />
+                                    </div>
+                                    <div class="col-md-6 form-group">
+                                        <input formControlName="pages" type="text" class="form-control" name="pages" placeholder="Pages" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="authors" type="text" class="form-control" name="authors" placeholder="Authors" />
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="thumbnail_url" type="text" class="form-control" name="thumbnail_url" placeholder="Thumbnail URL" />
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="categories" type="text" class="form-control" name="categories" placeholder="Categories" />
+                                </div>
+                                <div class="form-group">
+                                    <input formControlName="short_desc" type="text" class="form-control" name="short_desc" placeholder="Short Description" />
+                                </div>
+                                <div class="form-group">
+                                    <textarea formControlName="long_desc" class="form-control" name="long_desc" placeholder="Long Description" rows="4">
+                                    </textarea>
+                                </div>
+                                <div class="form-group"><button class="btn btn-primary" type="submit">send </button></div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Library Management System</span></div>
+            </div>
+        </footer>
+    </div>
+</div>

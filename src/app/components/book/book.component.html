@@ -31,6 +31,7 @@
                                             <th>Name</th>
                                             <th>ISBN</th>
                                             <th>Copies Available</th>
+                                            <th>Edit</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -40,7 +41,7 @@
                                             <td>{{item['isbn']}}</td>
                                             <td>{{item['available_copies']}}</td>
                                             <td>
-                                                <button class="btn btn-danger btn-sm">Edit</button>
+                                                <button class="btn btn-danger btn-sm" [routerLink]="['/addBooks']" [queryParams]="{edit: true, id: item['_id']}">Edit</button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -50,7 +51,7 @@
                                             <td><strong>Name</strong></td>
                                             <td><strong>ISBN</strong></td>
                                             <td><strong>Copies Available</strong></td>
-                                            
+                                            <td><strong>Edit</strong></td>
                                         </tr>
                                     </tfoot>
                                 </table>

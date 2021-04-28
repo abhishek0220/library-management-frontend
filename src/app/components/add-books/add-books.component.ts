@@ -13,7 +13,9 @@ export class AddBooksComponent implements OnInit {
 
   allPublisher = [];
   allRental = [];
+  bookId = -1;
   newBookForm : FormGroup;
+  editMode = false;
   constructor(
     private http: HttpClient,
     private storeInfo: StoreInfoService,
@@ -26,9 +28,11 @@ export class AddBooksComponent implements OnInit {
     this.getRental();
     this.activatedroute.queryParamMap.subscribe(params => {
       var tmp = params.get('edit') || 'null';
-      var id = params.get('id') || -1;
+      var id = parseInt(params.get('id')) || -1;
       if(tmp == 'true' && id != -1){
+        this.editMode = true;
         console.log("To be edited")
+        this.bookId = id ;
         this.getBook(id);
       }
     });
@@ -86,7 +90,11 @@ export class AddBooksComponent implements OnInit {
       return false;
     }
     else{
-      this.http.post(`${this.storeInfo.serverURL}/books`, this.newBookForm.value).pipe().subscribe((data)=>{
+      var vals = this.newBookForm.value;
+      if(this.editMode){
+        vals['book_id'] = this.bookId
+      }
+      this.http.post(`${this.storeInfo.serverURL}/books`, vals).pipe().subscribe((data)=>{
         this.router.navigateByUrl('book');
       },error =>{
         console.log("error occured",'--------------------------------------------')

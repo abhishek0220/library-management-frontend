@@ -29,44 +29,44 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Fine</th>
-                                            <th>Limit</th>
-                                            <th>Price</th>
+                                            <th>Fine(in Rs per day)</th>
+                                            <th>Limit(in days)</th>
+                                            <th>Price(in Rs per day)</th>
             
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr *ngFor = "let item of allRental; let i=index">
-                                            <td>{{item['p_id']}}</td>
-                                            <td *ngIf="i != editIndex">{{item['fine']}}</td>
-                                            <td *ngIf="i != editIndex">{{item['limit']}}</td>
-                                            <td *ngIf="i != editIndex">{{item['price']}}</td>
+                                            <td>{{item['rental_id']}}</td>
+                                            <td *ngIf="i != editIndex">{{item['fine_day']}}</td>
+                                            <td *ngIf="i != editIndex">{{item['limit_day']}}</td>
+                                            <td *ngIf="i != editIndex">{{item['price_day']}}</td>
                                             <td *ngIf="i == editIndex"><input formControlName="editfine" type="text"></td>
                                             <td *ngIf="i == editIndex"><input formControlName="editlimit" type="text"></td>
                                             <td *ngIf="i == editIndex"><input formControlName="editprice" type="text"></td>
                                             <td>
                                                 <button *ngIf="i != editIndex" class="btn btn-danger btn-sm" (click)="editTrigger(i)">Edit</button>
                                                 <div *ngIf="i == editIndex">
-                                                    <p class="hover-cursor" (click)="saveRental(item['p_id'])">Save</p>
-                                                    <p class="hover-cursor" (click)="deleteRental(item['p_id'])">Delete</p>
+                                                    <p class="hover-cursor" (click)="saveRental(item['rental_id'])">Save</p>
+                                                    <p class="hover-cursor" (click)="deleteRental(item['rental_id'])">Delete</p>
                                                 </div>
                                                 
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>ADD_NEW</td>
-                                            <td><input formControlName="finepday" type="text" placeholder="Ex; 2$/day"></td>
-                                            <td><input formControlName="limitpday" type="text" placeholder="Ex; 2 days"></td>
-                                            <td><input formControlName="pricepday" type="text" placeholder="Ex; 10$/day"></td>
+                                            <td><input formControlName="fine" type="text" placeholder="Ex; 2$/day"></td>
+                                            <td><input formControlName="limit" type="text" placeholder="Ex; 2 days"></td>
+                                            <td><input formControlName="price" type="text" placeholder="Ex; 10$/day"></td>
                                             <td> <button class="btn btn-success btn-sm" type="submit">Enter</button></td>
                                         </tr>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                             <td><strong>ID</strong></td>
-                                            <td><strong>Fine</strong></td>
-                                            <td><strong>Limit</strong></td>
-                                            <td><strong>Price</strong></td>
+                                            <td><strong>Fine(in Rs per day)</strong></td>
+                                            <td><strong>Limit(in days)</strong></td>
+                                            <td><strong>Price(in Rs per day)</strong></td>
                                             
                                         </tr>
                                     </tfoot>

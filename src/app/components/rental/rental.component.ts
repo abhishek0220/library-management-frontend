@@ -39,7 +39,7 @@ export class RentalComponent implements OnInit {
     this.editIndex = -1;
     this.newRentalForm.reset();
     this.http.get(`${this.storeInfo.serverURL}/rental`).pipe().subscribe((data)=>{
-      this.allRental = data['rental'];
+      this.allRental = data['Rental'];
     },error =>{
       console.log(error)
     })

@@ -27,9 +27,9 @@ export class RentalComponent implements OnInit {
   }
   mainForm() {
     this.newRentalForm = this.fb.group({
-      finepday: ['', [Validators.required]],
-      limitpday: ['', [Validators.required]],
-      pricepday: ['', [Validators.required]],
+      fine: ['', [Validators.required]],
+      limit: ['', [Validators.required]],
+      price: ['', [Validators.required]],
       editfine: [''],
       editlimit: [''],
       editprice: [''],
@@ -47,9 +47,9 @@ export class RentalComponent implements OnInit {
   editTrigger(val : number){
     console.log(val)
     this.newRentalForm.patchValue({
-      editfine: this.allRental[val]['fine'],
-      editlimit: this.allRental[val]['limit'],
-      editprice: this.allRental[val]['price']
+      editfine: this.allRental[val]['fine_day'],
+      editlimit: this.allRental[val]['limit_day'],
+      editprice: this.allRental[val]['price_day']
     })
     this.editIndex = val;
   }
@@ -73,10 +73,10 @@ export class RentalComponent implements OnInit {
     var limit = this.newRentalForm.get('editlimit').value;
     var price = this.newRentalForm.get('editprice').value;
     var tmp = {
-      'p_id' : n,
-      'finepday' : fine,
-      'limitpday' : limit,
-      'pricepday' : price
+      'rentalId' : n,
+      'price' : price,
+      'fine' : fine,
+      'limit' : limit
     }
     this.http.post(`${this.storeInfo.serverURL}/rental`, tmp).pipe().subscribe((data)=>{
       this.getRental()
